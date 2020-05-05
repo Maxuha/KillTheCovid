@@ -152,7 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virus: {fileID: 2939511715122205971, guid: 19023f52ac4ec7649994b9e7ade6481b, type: 3}
-  subjects: []
+  subjects:
+  - {fileID: 6925783211214852414, guid: 3e9084246371ee442af8db6018342c03, type: 3}
   player: {fileID: 1126123772}
 --- !u!4 &345357254
 Transform:
