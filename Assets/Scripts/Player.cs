@@ -12,14 +12,20 @@ public class Player : MonoBehaviour
     [SerializeField] private Text text;
     private float _currentPlus;
     [SerializeField] private BonusManager bonusManager;
+    private Transform _thisTransform;
+    private Transform _bonusSliderPos;
 
     private void Start()
     {
         text = GameObject.Find("Score").GetComponent<Text>();
+        _bonusSliderPos = bonusSlider.transform;
+        _thisTransform = transform;
     }
 
     private void Update()
     {
+        _bonusSliderPos.rotation = _thisTransform.rotation;
+        
         if (bonusManager.IsActiveBonus)
         {
             AddBonus(0);

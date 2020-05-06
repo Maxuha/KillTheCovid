@@ -10,7 +10,6 @@ public class Subject : MonoBehaviour
     protected float _speedRotation = 1800f;
     protected float _speedDestroy = 0.1f;
     protected float _currentDestroy;
-    protected int sizePlus = 20;
     protected bool _isDead;
     protected Rigidbody2D _thisRigidbody;
     protected Collider2D other;

@@ -19,7 +19,6 @@ public class BonusManager : MonoBehaviour
     public void SelectBonus()
     {
         int random = Random.Range(0, bonuses.Length);
-        random = 0;
         _currentBonus = bonuses[random];
     }
 

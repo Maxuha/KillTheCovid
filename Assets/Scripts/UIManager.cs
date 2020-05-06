@@ -6,8 +6,16 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public static float timeGame;
+    
     public void OnRestartButton()
     {
-        SceneManager.LoadScene(0);
+        LoadScene(0);
+    }
+
+    public static void LoadScene(int scene)
+    {
+        timeGame = 0;
+        SceneManager.LoadScene(scene);
     }
 }

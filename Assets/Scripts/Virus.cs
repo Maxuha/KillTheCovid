@@ -49,10 +49,14 @@ public class Virus : Subject
             //flashDead.Play();
             this.other = other;
             _isDead = true;
-        } 
+        }
+        else if ("Shoot".Equals(other.tag))
+        {
+            _isDead = true;
+        }
         else if ("Player".Equals(other.tag))
         {
-            SceneManager.LoadScene(0);
+            UIManager.LoadScene(0);
         }
     }
 }

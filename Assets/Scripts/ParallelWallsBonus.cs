@@ -11,7 +11,7 @@ public class ParallelWallsBonus : Bonus
     private int random;
     private GameObject[] walls;
     private float lifeTime;
-    private float maxLifeTime = 20.0f;
+    private float maxLifeTime = 15.0f;
     private Vector2 left, right, up, down;
     private Quaternion quaternion;
 
@@ -55,8 +55,6 @@ public class ParallelWallsBonus : Bonus
     {
         Destroy(walls[0]);
         Destroy(walls[1]);
-        Debug.Log("Walls1: " + walls[0]);
-        Debug.Log("Walls2: " + walls[1]);
 
     }
 }
