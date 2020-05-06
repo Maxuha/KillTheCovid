@@ -18,10 +18,10 @@ public class ParallelWallsBonus : Bonus
     private void Start()
     {
         walls = new GameObject[2];
-        left = new Vector2(-2, 0);
-        right = new Vector2(2, 0);
-        up = new Vector2(0, 3.05f);
-        down = new Vector2(0, -3.05f);
+        left = new Vector2(-1.65f, 0);
+        right = new Vector2(1.65f, 0);
+        up = new Vector2(0, 2.75f);
+        down = new Vector2(0, -2.75f);
     }
 
     private void Update()

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static float timeGame;
-    
+
     public void OnRestartButton()
     {
         LoadScene(0);
