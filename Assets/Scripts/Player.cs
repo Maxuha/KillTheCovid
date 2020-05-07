@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Start");
         ApplyRecord();
         recordText.text = "High Score: " + _maxRecord;
         scoreText = GameObject.Find("Score").GetComponent<Text>();
@@ -64,7 +63,7 @@ public class Player : MonoBehaviour
         recordText.text = "High Score: " + _record;
     }
 
-    public void ApplyRecord()
+    private void ApplyRecord()
     {
         _maxRecord = SaveManager.Load();
     }
