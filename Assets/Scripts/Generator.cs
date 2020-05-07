@@ -19,7 +19,7 @@ public class Generator : MonoBehaviour
     void Update()
     {
         UIManager.timeGame += Time.deltaTime;
-        if (UIManager.timeGame >= 90)
+        if (UIManager.timeGame >= 75)
         {
             UIManager.timeGame = 30;
         }
