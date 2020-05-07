@@ -1,12 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class Generator : MonoBehaviour
 {
     [SerializeField] private Virus virus;
     [SerializeField] private Subject[] subjects;
+    [SerializeField] private AnimationCurve difficulty;
     private float timeGenerateVirus = 1f;
     private float _currentTimeVirus;
     private float timeGenerateSubject = 3f;
@@ -15,6 +18,13 @@ public class Generator : MonoBehaviour
 
     void Update()
     {
+        UIManager.timeGame += Time.deltaTime;
+        if (UIManager.timeGame >= 90)
+        {
+            UIManager.timeGame = 30;
+        }
+        Debug.Log("Time: " + UIManager.timeGame / 60);
+        timeGenerateVirus = difficulty.Evaluate(UIManager.timeGame / 60);
         CreateVirus();
         CreateLimfocit();
     }

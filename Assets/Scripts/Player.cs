@@ -9,17 +9,28 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Image bonusSlider;
     private int _score;
-    [SerializeField] private Text text;
+    private int _record;
+    private int _maxRecord;
+    [SerializeField] private Text scoreText, recordText;
     private float _currentPlus;
     [SerializeField] private BonusManager bonusManager;
+    private Transform _thisTransform;
+    private Transform _bonusSliderPos;
 
     private void Start()
     {
-        text = GameObject.Find("Score").GetComponent<Text>();
+        Debug.Log("Start");
+        ApplyRecord();
+        recordText.text = "High Score: " + _maxRecord;
+        scoreText = GameObject.Find("Score").GetComponent<Text>();
+        _bonusSliderPos = bonusSlider.transform;
+        _thisTransform = transform;
     }
 
     private void Update()
     {
+        _bonusSliderPos.rotation = _thisTransform.rotation;
+        
         if (bonusManager.IsActiveBonus)
         {
             AddBonus(0);
@@ -41,6 +52,31 @@ public class Player : MonoBehaviour
     public void AddScore()
     {
         _score++;
-        text.text = "Score: " + _score;
+        if (_record > 0 && _record < _maxRecord)
+            _record--;
+        else
+            _record++;
+
+        if (_score > _maxRecord)
+            _maxRecord = _score;
+        
+        scoreText.text = "Score: " + _score;
+        recordText.text = "High Score: " + _record;
+    }
+
+    public void ApplyRecord()
+    {
+        _maxRecord = SaveManager.Load();
+    }
+
+    public void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus)
+            SaveManager.Save(_maxRecord);
+    }
+
+    public void OnApplicationQuit()
+    {
+        SaveManager.Save(_maxRecord);
     }
 }

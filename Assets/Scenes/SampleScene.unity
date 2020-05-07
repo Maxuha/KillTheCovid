@@ -154,6 +154,57 @@ MonoBehaviour:
   virus: {fileID: 2939511715122205971, guid: 19023f52ac4ec7649994b9e7ade6481b, type: 3}
   subjects:
   - {fileID: 6925783211214852414, guid: 3e9084246371ee442af8db6018342c03, type: 3}
+  difficulty:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.0022239685
+      value: 0.9975929
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.40445766
+      value: 0.8998405
+      inSlope: -0.73260444
+      outSlope: -0.73260444
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.500427
+      value: 0.7996733
+      inSlope: -0.602621
+      outSlope: -0.602621
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6936706
+      value: 0.7252964
+      inSlope: -0.8940042
+      outSlope: -0.8940042
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0010376
+      value: 0.44513544
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   player: {fileID: 1126123772}
 --- !u!4 &345357254
 Transform:
@@ -183,6 +234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bonuses:
   - {fileID: 1956607367}
+  - {fileID: 1327635679}
+  pressMe: {fileID: 1422146484}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,6 +462,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1327635679 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1327635679, guid: 8cd7911a70f099b43a33c6299b39b1f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1422146483}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81435302c8dc2a74fa7b2b2c440a3c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1422146483
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -423,9 +488,14 @@ PrefabInstance:
       objectReference: {fileID: 1141649971}
     - target: {fileID: 4214299424624370089, guid: 8cd7911a70f099b43a33c6299b39b1f6,
         type: 3}
-      propertyPath: text
+      propertyPath: scoreText
       value: 
       objectReference: {fileID: 541695033}
+    - target: {fileID: 4214299424624370089, guid: 8cd7911a70f099b43a33c6299b39b1f6,
+        type: 3}
+      propertyPath: recordText
+      value: 
+      objectReference: {fileID: 1539414065}
     - target: {fileID: 4214299424624370089, guid: 8cd7911a70f099b43a33c6299b39b1f6,
         type: 3}
       propertyPath: bonusManager
@@ -493,6 +563,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cd7911a70f099b43a33c6299b39b1f6, type: 3}
+--- !u!198 &1422146484 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1409418006565918342, guid: 8cd7911a70f099b43a33c6299b39b1f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1422146483}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1539414065 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6197822707761656051, guid: e1a008e326df7ca4a9451727b2bce8d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6197822706882852487}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1956607367 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4849075405474763592, guid: 8cd7911a70f099b43a33c6299b39b1f6,
@@ -591,11 +679,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6197822707062430406, guid: e1a008e326df7ca4a9451727b2bce8d8,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2086651833}
     - target: {fileID: 6197822707763126584, guid: e1a008e326df7ca4a9451727b2bce8d8,
         type: 3}
       propertyPath: m_Name

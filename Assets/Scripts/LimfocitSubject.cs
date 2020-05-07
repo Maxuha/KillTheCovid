@@ -5,6 +5,7 @@ using UnityEngine;
 public class LimfocitSubject : Subject
 {
     private bool _isBonus;
+    private int sizePlus = 25;
     
     public void Update()
     {

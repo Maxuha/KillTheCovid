@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class BonusManager : MonoBehaviour
 {
     [SerializeField] private Bonus[] bonuses;
+    [SerializeField] private ParticleSystem pressMe;
     private Bonus _currentBonus;
     private float _timeClick;
     private float maxTimeClick = 2.0f;
@@ -19,8 +20,8 @@ public class BonusManager : MonoBehaviour
     public void SelectBonus()
     {
         int random = Random.Range(0, bonuses.Length);
-        random = 0;
         _currentBonus = bonuses[random];
+        pressMe.Play();
     }
 
     public bool IsActiveBonus => _isActiveBonus;
@@ -41,6 +42,7 @@ public class BonusManager : MonoBehaviour
         {
             if (_currentBonus != null)
             {
+                pressMe.Stop();
                 _currentBonus.InActive();
                 _isActiveBonus = true;
                 _currentBonus = null;

@@ -6,7 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed = 200f;
-    private float lifeCircle = 0.5f;
+    private float lifeCircle = 1.0f;
     private float _currentLife;
 
     public float GetSpeed()
